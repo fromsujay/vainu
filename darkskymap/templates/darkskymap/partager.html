@@ -1,0 +1,48 @@
+{% extends 'darkskymap/parent_template.html' %}
+
+
+{% block content %}
+        
+  <form method="POST" class="post-form">
+    {% csrf_token %} 
+    
+    {{ form.as_p }}
+    
+    <p>
+    <label for="id_locationid">Identification Lieu:</label>
+    <input id="id_locationid" maxlength="70" name="locationid" type="text"/>
+    <span class="helptext"> Identifiant du lieu d'observation. A saisir sans espace.</span>
+    </p>
+    
+    <p>
+    <label for="id_latitude">Latitude du lieu:</label>
+    <input id="id_latitude" name="latitude" type="text"/>
+    <span class="helptext"> Degrés décimaux (DD) : 49.630275 </span>
+    </p>
+    
+    <p>
+    <label for="id_longitude">Longitude du lieu:</label>
+    <input id="id_longitude" name="longitude" type="text"/>
+    <span class="helptext"> Degrés décimaux (DD) : -1.724942 </span>
+    </p>
+    
+    <p>
+    <label for="id_observationdate">Date d'observation:</label>
+    <input id="id_observationdate" name="observationdate" type="date"/>
+    <span class="helptext"> Date d'observation</span>
+    </p>
+    
+    <button type="submit"> Créer lieu d'observation </button>
+    
+    </form>
+
+
+{% endblock %}
+
+
+
+    
+
+
+
+ 
