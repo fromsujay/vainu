@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 import os
 import sys
 
-path = '/home/fromsujay/vainu/vainu'
+path = '/home/fromsujay/myvenv/vainu'
 
 if path not in sys.path:
     sys.path.append(path) 

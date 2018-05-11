@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 # Create your views here.
 from django.http.response import HttpResponse
@@ -25,7 +26,7 @@ def partager(request):
         form = LocationdataForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Lieu d'Observation sauvgardé.")
+            return redirect('/decouvrir/')
         else:
             return HttpResponse("Erreur de saisie. Veuillez recommencer SVP.")
 
