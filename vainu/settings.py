@@ -123,10 +123,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # List of directories where Django can look for static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#    '/var/www/static/',
+#]
 
 urlpatterns = [
     # ... the rest of your URLconf goes here ...
