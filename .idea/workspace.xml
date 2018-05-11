@@ -11,7 +11,11 @@
 =======
     <list default="true" id="afa9806b-2cf9-4455-a97b-767952ea9800" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/vainu/.idea/workspace.xml" afterPath="$PROJECT_DIR$/vainu/.idea/workspace.xml" />
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +56,11 @@
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="698" />
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -72,7 +80,11 @@
 <<<<<<< HEAD
 =======
       <pane id="Scratches" />
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -94,7 +106,11 @@
 =======
               <item name="Learn Django the Hard Way" type="b2602c69:ProjectViewProjectNode" />
               <item name="Learn Django the Hard Way" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
             </path>
           </expand>
           <select />
@@ -103,7 +119,11 @@
 <<<<<<< HEAD
       <pane id="Scratches" />
 =======
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -143,7 +163,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518966309788</updated>
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
     </task>
     <servers />
   </component>
@@ -195,7 +219,11 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -311,5 +339,9 @@
     </entry>
   </component>
 =======
+<<<<<<< HEAD
 >>>>>>> afab8eb14e27bbd5e5582eab34da76cc0717ce53
+=======
+>>>>>>> Dark Sky Map, 1st commit
+>>>>>>> temp-branch
 </project>
