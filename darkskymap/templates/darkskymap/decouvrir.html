@@ -12,6 +12,9 @@
     
     <!-- CSS instructions for Map -->
     <link href="{% static 'darkskymap/css/styleinstructions.css' %}" rel="stylesheet" type="text/css">  
+    
+     <!-- Custom styles navbar -->
+    <link href="{% static 'darkskymap/css/navbar-top-fixed.css' %}" rel="stylesheet" type="text/css">
 
     <title>Dark Sky Map</title> 
       
@@ -19,6 +22,28 @@
   
   <body>
     <div id="map" ></div>
+
+     <!-- Code for fixed top navabar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Dark Sky Map</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accueil </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/decouvrir/">Découvrir <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/partager/">Partager </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
 
     <script type="text/javascript">
     
