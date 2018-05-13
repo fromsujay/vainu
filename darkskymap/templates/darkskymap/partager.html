@@ -1,50 +1,150 @@
-<!-- html that implements data entry page using parent_template -->
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="Bootstrap & BBEdit 11.6" />
 
-{% extends 'darkskymap/parent_template.html' %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this form template -->
+    <link href="{% static 'darkskymap/css/form-validation.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles navbar -->
+    <link href="{% static 'darkskymap/css/navbar-top-fixed.css' %}" rel="stylesheet" type="text/css">
+
+    <title>Dark Sky Map</title>
+  </head>
+
+  <body class="bg-light">
+
+   <!-- Code for fixed top navabar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/#/">Dark Sky Map</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/#/">Accueil </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/decouvrir/">Découvrir </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/partager/">Partager <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+                    <div class="py-5 text-center">
+                              <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+                              <h2>Partagez un lieu d'Observation</h2>
+                              <p class="lead">Tous les champs sont obligatoires. Veuillez respecter les formats préconisés SVP. Pour l'instant la suppression des lieux crées n'est pas disponible.</p>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-md-8 order-md-1">
+                    <form method="POST" class="post-form">
+                        {% csrf_token %} 
+                        {{ form }}    
+                    
+                    <div class="mb-3">
+                    <div class="input-group">
+                              
+                              <div class="mb-3">
+                              <label for="id_locationid"">Nom du lieu d'observation <span class="text-muted">Il doit être unique.</span></label>
+                              <input type="text" class="form-control" id="id_locationid" maxlength="70" name="locationid" placeholder="exemple: Planétarium Ludiver" required>
+                                 <div class="invalid-feedback">
+                                   Maximum 70 caractères.
+                                 </div>
+                              </div>
+
+                              
+                              <div class="mb-3">
+                              <label for="id_latitude">Latitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
+                              <input type="text" class="form-control" id="id_latitude" name="latitude" placeholder="exemple: 49.630275" required>
+                                 <div class="invalid-feedback">
+                                    Uniquement sous format degrés décimaux (DD).
+                                 </div>
+                              </div>
+                              
+                              
+                              <div class="mb-3">
+                              <label for="id_longitude">Longitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
+                              <input type="text" class="form-control" id="id_longitude" name="longitude" placeholder="exemple: -1.724942" required>
+                                 <div class="invalid-feedback">
+                                    Uniquement sous format degrés décimaux (DD).
+                                 </div>
+                              </div>
+
+                              
+                              <div class="mb-3">
+                              <label for="id_observationdate">Date d'Observation <span class="text-muted">(jj/mm/aaaa)</span></label>
+                              <input type="date" class="form-control" id="id_observationdate" name="observationdate" required>
+                                 <div class="invalid-feedback">
+                                    Veuillez renseigner une date sous format jj/mm/aaaa SVP.
+                                 </div>
+                              </div>
+
+                              <hr class="mb-4">
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Créer lieu d'Observation</button>
+                    
+                    
+                    </div>
+                    </div>                    
+                    </form>
+                    </div>
+                    </div>
+
+                    <footer class="my-5 pt-5 text-muted text-center text-small">
+                            <p class="mb-1">Contact : fromsujay@gmail.com</p>
+                    </footer>
+    </div>
 
 
-{% block content %}
-        
-  <form method="POST" class="post-form">
-    {% csrf_token %} 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    
+    <script src="darkskymap/js/holder.min.js"> type="text/javascript" </script>
     
-    {{ form.as_p }}
-    
-    <p>
-    <label for="id_locationid">Identification Lieu:</label>
-    <input id="id_locationid" maxlength="70" name="locationid" type="text"/>
-    <span class="helptext"> Nom du lieu d'observation. Il doit être unique.</span>
-    </p>
-    
-    <p>
-    <label for="id_latitude">Latitude du lieu:</label>
-    <input id="id_latitude" name="latitude" type="text"/>
-    <span class="helptext"> Degrés décimaux (DD) : 49.630275 </span>
-    </p>
-    
-    <p>
-    <label for="id_longitude">Longitude du lieu:</label>
-    <input id="id_longitude" name="longitude" type="text"/>
-    <span class="helptext"> Degrés décimaux (DD) : -1.724942 </span>
-    </p>
-    
-    <p>
-    <label for="id_observationdate">Date d'observation:</label>
-    <input id="id_observationdate" name="observationdate" type="date"/>
-    <span class="helptext"> Date d'observation</span>
-    </p>
-    
-    <button type="submit"> Créer lieu d'observation </button>
-    
-    </form>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
 
 
-{% endblock %}
+  </body>
+</html>
 
 
 
-    
 
-
-
- 
