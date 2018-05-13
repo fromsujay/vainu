@@ -48,13 +48,12 @@
 
     <div class="container">
                     <div class="py-5 text-center">
-                              <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                               <h2>Partagez un lieu d'Observation</h2>
                               <p class="lead">Tous les champs sont obligatoires. Veuillez respecter les formats préconisés SVP. Pour l'instant la suppression des lieux crées n'est pas disponible.</p>
                     </div>
 
                     <div class="row">
-                    <div class="col-md-8 order-md-1">
+                    <div class="col-xs-12">
                     <form method="POST" class="post-form">
                         {% csrf_token %} 
                         {{ form }}    
@@ -65,36 +64,24 @@
                               <div class="mb-3">
                               <label for="id_locationid"">Nom du lieu d'observation <span class="text-muted">Il doit être unique.</span></label>
                               <input type="text" class="form-control" id="id_locationid" maxlength="70" name="locationid" placeholder="exemple: Planétarium Ludiver" required>
-                                 <div class="invalid-feedback">
-                                   Maximum 70 caractères.
-                                 </div>
                               </div>
 
                               
                               <div class="mb-3">
                               <label for="id_latitude">Latitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_latitude" name="latitude" placeholder="exemple: 49.630275" required>
-                                 <div class="invalid-feedback">
-                                    Uniquement sous format degrés décimaux (DD).
-                                 </div>
                               </div>
                               
                               
                               <div class="mb-3">
                               <label for="id_longitude">Longitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_longitude" name="longitude" placeholder="exemple: -1.724942" required>
-                                 <div class="invalid-feedback">
-                                    Uniquement sous format degrés décimaux (DD).
-                                 </div>
                               </div>
 
                               
                               <div class="mb-3">
                               <label for="id_observationdate">Date d'Observation <span class="text-muted">(jj/mm/aaaa)</span></label>
                               <input type="date" class="form-control" id="id_observationdate" name="observationdate" required>
-                                 <div class="invalid-feedback">
-                                    Veuillez renseigner une date sous format jj/mm/aaaa SVP.
-                                 </div>
                               </div>
 
                               <hr class="mb-4">
