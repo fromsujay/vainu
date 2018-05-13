@@ -48,51 +48,50 @@
 
     <div class="container">
                     <div class="py-5 text-center">
+                    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                               <h2>Partagez un lieu d'Observation</h2>
                               <p class="lead">Tous les champs sont obligatoires. Veuillez respecter les formats préconisés SVP. Pour l'instant la suppression des lieux crées n'est pas disponible.</p>
                     </div>
 
-                    <div class="row">
-                    <div class="col-xs-12">
+                    
                     <form method="POST" class="post-form">
                         {% csrf_token %} 
                         {{ form }}    
                     
-                    <div class="mb-3">
-                    <div class="input-group">
+          
+
                               
-                              <div class="mb-3">
+                              <div class="form-group">
                               <label for="id_locationid"">Nom du lieu d'observation <span class="text-muted">Il doit être unique.</span></label>
                               <input type="text" class="form-control" id="id_locationid" maxlength="70" name="locationid" placeholder="exemple: Planétarium Ludiver" required>
                               </div>
 
                               
-                              <div class="mb-3">
+                              <div class="form-group">
                               <label for="id_latitude">Latitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_latitude" name="latitude" placeholder="exemple: 49.630275" required>
                               </div>
                               
                               
-                              <div class="mb-3">
+                              <div class="form-group">
                               <label for="id_longitude">Longitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_longitude" name="longitude" placeholder="exemple: -1.724942" required>
                               </div>
 
                               
-                              <div class="mb-3">
+                              <div class="form-group">
                               <label for="id_observationdate">Date d'Observation <span class="text-muted">(jj/mm/aaaa)</span></label>
                               <input type="date" class="form-control" id="id_observationdate" name="observationdate" required>
                               </div>
 
-                              <hr class="mb-4">
+
                               <button class="btn btn-primary btn-lg btn-block" type="submit">Créer lieu d'Observation</button>
                     
                     
-                    </div>
-                    </div>                    
+
+                   
                     </form>
-                    </div>
-                    </div>
+
 
                     <footer class="my-5 pt-5 text-muted text-center text-small">
                             <p class="mb-1">Contact : fromsujay@gmail.com</p>
