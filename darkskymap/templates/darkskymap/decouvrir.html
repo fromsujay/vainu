@@ -180,13 +180,12 @@
     		{% for data in datadump %}
     	    var latLng = new google.maps.LatLng({{data.latitude}},{{data.longitude}});
         	
-        	var icon = "https://www.pythonanywhere.com/user/fromsujay/files/home/fromsujay/fromsujay.pythonanywhere.com/darkskymap/static/darkskymap/img/markers/rocket-15.svg";
         	var marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
             	title: '{{data.locationid}}',
             	label: '{{data.observationdate}}',
-            	icon: image
+            	icon: "/static/darkskymap/img/markers/rocket-15.svg"
         	});
 
     		{% endfor %}
