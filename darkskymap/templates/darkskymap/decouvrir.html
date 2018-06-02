@@ -179,13 +179,13 @@
 <!-- loop through datadump to create markers -->
     		{% for data in datadump %}
     	    var latLng = new google.maps.LatLng({{data.latitude}},{{data.longitude}});
-        	var image = 'vainu/darkskymap/static/darkskymap/img/markers/rocket-15.svg';
+        	
         	var marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
             	title: '{{data.locationid}}',
             	label: '{{data.observationdate}}',
-            	icon: image,
+            	icon: "/vainu/darkskymap/static/darkskymap/img/markers/rocket-15.svg"
         	});
 
     		{% endfor %}
