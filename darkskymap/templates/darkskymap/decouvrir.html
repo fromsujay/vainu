@@ -180,12 +180,13 @@
     		{% for data in datadump %}
     	    var latLng = new google.maps.LatLng({{data.latitude}},{{data.longitude}});
         	
+<!-- Give location to look for marker image and define size -->        	
         	var icon = {
                 url: "{% static 'darkskymap/img/rocket-15.svg' %}", // url
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
         	
-        	
+<!-- Define marker attributes -->        	
         	var marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
