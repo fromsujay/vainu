@@ -197,19 +197,18 @@
             	icon: icon
         	});
     		    		
-    		    		
-    		    		   		
-    		{% endfor %}
-    		
 <!-- Initialise infowindow and its content -->  
             var infowindow = new google.maps.InfoWindow({
-                content: '{{data.locationid}}';
+                content: '{{data.locationid}}'
             });
     		
 <!-- Addition of on-click event to marker -->
         	marker.addListener('click', function() {
                 infowindow.open(map, marker);
-            });
+            });    		    		
+    		    		   		
+    		{% endfor %}
+    		
     	} 
 
 
