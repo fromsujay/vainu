@@ -196,13 +196,10 @@
             	label: '{{data.observationdate}}',
             	icon: icon
         	});
-    		
-<!-- Defines content of infowindow -->   
-            var contentString = '{{data.locationid}}';
-    		
+    		    		
 <!-- Initialise infowindow and its content -->  
             var infowindow = new google.maps.InfoWindow({
-                content: contentString
+                content: '{{data.locationid}}'
             });
     		
     		{% endfor %}
