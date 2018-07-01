@@ -162,19 +162,6 @@
           ]
           });
           
-<!-- Defines content of infowindow -->   
-            var contentString = '{{data.locationid}}';
-
-<!-- Initialise infowindow and its content -->  
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-
-<!-- Addition of on-click event to marker -->
-        	marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
-
           
 <!-- Creation of array each element of model -->
         	var locationid = []
@@ -211,6 +198,19 @@
         	});
     		
     		{% endfor %}
+    		
+<!-- Defines content of infowindow -->   
+            var contentString = '{{data.locationid}}';
+
+<!-- Initialise infowindow and its content -->  
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+<!-- Addition of on-click event to marker -->
+        	marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
     	} 
 
 
