@@ -185,7 +185,15 @@
                 url: "{% static 'darkskymap/img/rocket-15.svg' %}", // url
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
-        	
+
+<!-- Defines content of infowindow -->   
+            var contentString = '{{data.locationid}}';
+
+<!-- Initialise infowindow and its content -->  
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
 <!-- Define marker attributes -->        	
         	var marker = new google.maps.Marker({
             	position: latLng,
@@ -195,6 +203,11 @@
             	icon: icon
         	});
 
+<!-- Addition of on-click event to marker -->
+        	marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+    		
     		{% endfor %}
     	} 
 
