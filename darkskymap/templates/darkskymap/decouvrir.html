@@ -200,13 +200,13 @@
 <!-- Defines content of infowindow -->   
             var contentString = '{{data.locationid}}';
     		
-    		{% endfor %}
-    		
 <!-- Initialise infowindow and its content -->  
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
-
+    		
+    		{% endfor %}
+    		
 <!-- Addition of on-click event to marker -->
         	marker.addListener('click', function() {
                 infowindow.open(map, marker);
