@@ -162,6 +162,20 @@
           ]
           });
           
+<!-- Defines content of infowindow -->   
+            var contentString = '{{data.locationid}}';
+
+<!-- Initialise infowindow and its content -->  
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+<!-- Addition of on-click event to marker -->
+        	marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+
+          
 <!-- Creation of array each element of model -->
         	var locationid = []
     		var latitude = []
@@ -186,13 +200,6 @@
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
 
-<!-- Defines content of infowindow -->   
-            var contentString = '{{data.locationid}}';
-
-<!-- Initialise infowindow and its content -->  
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
 
 <!-- Define marker attributes -->        	
         	var marker = new google.maps.Marker({
@@ -202,14 +209,10 @@
             	label: '{{data.observationdate}}',
             	icon: icon
         	});
-
-<!-- Addition of on-click event to marker -->
-        	marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
     		
     		{% endfor %}
     	} 
+
 
     </script>
      
