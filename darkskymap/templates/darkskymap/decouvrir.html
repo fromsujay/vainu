@@ -197,11 +197,11 @@
             	icon: icon
         	});
     		
-    		{% endfor %}
-    		
 <!-- Defines content of infowindow -->   
             var contentString = '{{data.locationid}}';
-
+    		
+    		{% endfor %}
+    		
 <!-- Initialise infowindow and its content -->  
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
