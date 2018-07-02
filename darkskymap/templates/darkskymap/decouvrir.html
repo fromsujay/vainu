@@ -196,10 +196,20 @@
             	label: '{{data.observationdate}}',
             	icon: icon
         	});
-    		    		
+
+    		{% endfor %}
+
+<!-- loop through datadump to create Infowindows -->
+    		{% for data in datadump %}
+
+
+<!-- Define content of infowindow -->  
+    		 var contentString = '{{data.locationid}}';
+
+
 <!-- Initialise infowindow and its content -->  
             var infowindow = new google.maps.InfoWindow({
-                content: '{{data.locationid}}'
+                content: contentString
             });
     		
 <!-- Addition of on-click event to marker -->
@@ -208,9 +218,7 @@
             });    		    		
     		    		   		
     		{% endfor %}
-    		
     	} 
-
 
     </script>
      
