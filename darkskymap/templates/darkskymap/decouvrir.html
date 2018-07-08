@@ -177,16 +177,13 @@
       			observationdate.push('{{data.observationdate}}');
     		{% endfor %}
 
-           var infowindow = new google.maps.InfoWindow();
-
-
 <!-- loop through datadump to create markers -->
-    		function createMarker (beta) {
-    		 
-    		var latLng = new google.maps.LatLng({{latitude}},{{longitude}});
-    		 
-<!-- Give location to look for marker image and define size -->        	
-        	var icon = {
+            {% for data in datadump %}
+            
+            var latLng = new google.maps.LatLng('{{data.latitude}}','{{data.longitude}}');
+            
+<!-- Give location to look for marker image and define size -->  
+            var icon = {
                 url: "{% static 'darkskymap/img/rocket-15.svg' %}", // url
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
@@ -195,23 +192,13 @@
         	var marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
-            	title: {{locationid}},
-            	label: {{observationdate}},
+            	title: '{{data.locationid}}',
+            	label: '{{data.observationdate}}',
             	icon: icon
         	});
+                        
+      		{% endfor %}
 
-            google.maps.event.addListener(marker, 'click', function(){
-                   infowindow.setContent({{locationid}});
-                   infowindow.open(map, marker);
-               });
-    		}
-
-
-
-           var i = locationid.length;
-           while ( i-- ) {
-                  createMarker( locationid[ i ] );
-                  }
     	} 
 
     </script>
