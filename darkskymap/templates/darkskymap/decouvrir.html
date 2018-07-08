@@ -179,10 +179,11 @@
 
            var infowindow = new google.maps.InfoWindow();
 
+
 <!-- loop through datadump to create markers -->
     		function createMarker (beta) {
     		 
-    		var latLng = new google.maps.LatLng('{{latitude}}','{{longitude}}');
+    		var latLng = new google.maps.LatLng({{latitude}},{{longitude}});
     		 
 <!-- Give location to look for marker image and define size -->        	
         	var icon = {
@@ -194,19 +195,21 @@
         	var marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
-            	title: '{{locationid}}',
-            	label: '{{observationdate}}',
+            	title: {{locationid}},
+            	label: {{observationdate}},
             	icon: icon
         	});
 
             google.maps.event.addListener(marker, 'click', function(){
-                   infowindow.setContent('{{locationid}}');
+                   infowindow.setContent({{locationid}});
                    infowindow.open(map, marker);
                });
     		}
 
-            var i = locationid.length;
-            while ( i-- ) {
+
+
+           var i = locationid.length;
+           while ( i-- ) {
                   createMarker( locationid[ i ] );
                   }
     	} 
