@@ -199,14 +199,14 @@
 
     		{% endfor %}
 
-            var infowindow = new google.maps.InfoWindow();
+           var infowindow = new google.maps.InfoWindow();
 
            function Marker() {
                google.maps.event.addListener(marker, 'click', function(){
                    infowindow.setContent(title);
                    infowindow.open(map, marker);
                });
-               return marker;
+
            }
     	} 
 
