@@ -197,27 +197,15 @@
             	icon: icon
         	});
 
+            (function (marker, title) {
+                google.maps.event.addListener(marker, 'click', function () {
+                    infoWindow.setContent(title);
+                    infoWindow.open(map, marker);
+                     });
+                 })(marker, title);
+
     		{% endfor %}
 
-<!-- loop through datadump to create Infowindows -->
-    		{% for data in datadump %}
-
-
-<!-- Define content of infowindow -->  
-    		 var contentString = '{{data.locationid}}';
-
-
-<!-- Initialise infowindow and its content -->  
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-    		
-<!-- Addition of on-click event to marker -->
-        	marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });    		    		
-    		    		   		
-    		{% endfor %}
     	} 
 
     </script>
