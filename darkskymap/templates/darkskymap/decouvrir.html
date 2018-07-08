@@ -197,14 +197,15 @@
             	icon: icon
         	});
 
-            (function (marker, title) {
-                google.maps.event.addListener(marker, 'click', function () {
-                    infoWindow.setContent(title);
-                    infoWindow.open(map, marker);
-                     });
-                 })(marker, title);
-
     		{% endfor %}
+
+           function Marker() {
+               google.maps.event.addListener(marker, 'click', function(){
+                   InfoWindow.setContent(title);
+                   InfoWindow.open(map, marker);
+               });
+           return marker;
+           }
 
     	} 
 
