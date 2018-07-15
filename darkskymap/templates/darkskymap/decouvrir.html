@@ -198,6 +198,18 @@
         	});
                         
       		{% endfor %}
+      		
+<!--  -->  
+
+            for(count=0; count≤locationid.length; count++)
+            
+            var contentString = '<h1 id="firstHeading" class="firstHeading">Site d'Observation</h1>';
+            
+            var infowindow = new google.maps.InfoWindow({ content: contentString });
+            
+            marker.addListener('click', fonction(){
+                infowindow.open(map, marker);
+            }); 
 
     	} 
 
