@@ -187,7 +187,7 @@
             };
             
 <!-- Define marker attributes -->        	
-        	var marker = new google.maps.Marker({
+        	    marker = new google.maps.Marker({
             	position: latLng,
             	map: map,
             	title: '{{data.locationid}}',
@@ -196,6 +196,15 @@
         	});
                         
       		{% endfor %}
+      		
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Site Observation'
+            });      		
+      		
+      		marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+      		
     	} 
     </script>
      
