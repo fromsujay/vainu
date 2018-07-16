@@ -48,7 +48,6 @@
     <script type="text/javascript">
     
 <!-- Retro map styling and setup -->
-
     function initMap() {        
     var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 6,
@@ -176,7 +175,6 @@
       			longitude.push('{{data.longitude}}');
       			observationdate.push('{{data.observationdate}}');
     		{% endfor %}
-
 <!-- loop through datadump to create markers -->
             {% for data in datadump %}
             
@@ -198,23 +196,7 @@
         	});
                         
       		{% endfor %}
-      		
-<!--  -->  
-
-            for(count=0; count≤('length.locationid'); count++) {
-            
-                var contentString = '<h1 id="firstHeading" class="firstHeading">Site dObservation</h1>';
-            
-                var infowindow = new google.maps.InfoWindow({ content: contentString });
-            
-                marker.addListener('click', fonction(){
-                    infowindow.open(map, marker);
-                }); 
-
-             }
-
-    	  } 
-
+    	} 
     </script>
      
 <!-- script that looks for map on Google's API server -->
