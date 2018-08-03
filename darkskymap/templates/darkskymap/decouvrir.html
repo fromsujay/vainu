@@ -199,6 +199,9 @@
       		                            
       		{% endfor %}
 
+            
+            {% for data in datadump %}
+            
 <!-- Assign content to Infowindows -->      	
             var infowindow = new google.maps.InfoWindow({
              content: 'Site Observation'
@@ -208,6 +211,8 @@
             marker.addListener('click', function() {
              infowindow.open(map, marker);
             });  
+      		                            
+      		{% endfor %}
         		
     	} 
     	    	
