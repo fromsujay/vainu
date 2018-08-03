@@ -196,9 +196,7 @@
             	label: '{{data.observationdate}}',
             	icon: icon
         	});
-                        
-      		{% endfor %}
-  
+
 <!-- Assign content to Infowindows -->      	
             var infowindow = new google.maps.InfoWindow({
              content: 'Site Observation'
@@ -209,10 +207,11 @@
             marker.addListener('click', function() {
              infowindow.open(map, marker);
             });  
-      		
+                        
+      		{% endfor %}
+        		
     	} 
-    	
-    	
+    	    	
     </script>
      
 <!-- script that looks for map on Google's API server -->
