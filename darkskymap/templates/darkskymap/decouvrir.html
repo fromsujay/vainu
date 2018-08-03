@@ -47,11 +47,6 @@
 
     <script type="text/javascript">
     
-<!-- Creation of array each element of model -->
-        	var locationid = []
-    		var latitude = []
-    		var longitude = []
-    		var observationdate = []
     
 <!-- Retro map styling and setup -->
     function initMap() {        
@@ -167,7 +162,11 @@
           ]
           });
           
-          
+<!-- Creation of array each element of model -->
+        	var locationid = []
+    		var latitude = []
+    		var longitude = []
+    		var observationdate = []         
 
     		
 <!-- loop through datadump to populate arrays -->
@@ -177,6 +176,7 @@
       			longitude.push('{{data.longitude}}');
       			observationdate.push('{{data.observationdate}}');
     		{% endfor %}
+
 <!-- loop through datadump to create markers -->
             {% for data in datadump %}
             
@@ -208,8 +208,8 @@
       		
 <!-- Assign on-click listener func to infowindow -->  
             google.maps.event.addListener(marker, 'click', function() {
-               infowindow.open(map, marker);
-            })
+                infowindow.open(map, marker);
+            });
     	
     </script>
      
