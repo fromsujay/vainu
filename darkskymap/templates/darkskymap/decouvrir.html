@@ -198,18 +198,20 @@
         	});
                         
       		{% endfor %}
-      		
-    	} 
-    	
+  
 <!-- Assign content to Infowindows -->      	
             var infowindow = new google.maps.InfoWindow({
              content: 'Site Observation'
             });      		
-      		
+      		  
+  
 <!-- Assign on-click listener func to infowindow -->  
             marker.addListener('click', function() {
              infowindow.open(map, marker);
-            });
+            });  
+      		
+    	} 
+    	
     	
     </script>
      
