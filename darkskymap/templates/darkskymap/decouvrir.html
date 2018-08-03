@@ -196,20 +196,20 @@
             	label: '{{data.observationdate}}',
             	icon: icon
         	});
+      		                            
+      		{% endfor %}
 
 <!-- Assign content to Infowindows -->      	
             var infowindow = new google.maps.InfoWindow({
              content: 'Site Observation'
             });      		
-      		                            
-      		{% endfor %}
-        		
-    	} 
 
 <!-- Assign on-click listener func to infowindow -->  
             marker.addListener('click', function() {
              infowindow.open(map, marker);
             });  
+        		
+    	} 
     	    	
     </script>
      
