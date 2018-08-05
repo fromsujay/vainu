@@ -207,10 +207,14 @@
              content: '{{data.locationid}}',
             });      		
 
-<!-- Assign on-click listener func to infowindow -->  
-            marker.addListener('click', function() {
-             infowindow.open(map, marker);
-            });  
+             {% for imarker in marker %}
+
+ <!-- Assign on-click listener func to infowindow -->  
+             imarker.addListener('click', function() {
+              infowindow.open(map, imarker);
+             });  
+      		
+      		 {% endfor %}
       		                            
       		{% endfor %}
         		
