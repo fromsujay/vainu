@@ -204,7 +204,7 @@
 
  <!-- Assign on-click listener func to infowindow -->  
              marker{{forloop.counter}}.addListener('click', function() {
-              infowindow{forloop.counter}.open(map, marker);
+              infowindow{{forloop.counter}}.open(map, marker);
              });        		
       		                            
       		{% endfor %}
