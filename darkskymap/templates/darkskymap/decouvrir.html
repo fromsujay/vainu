@@ -180,35 +180,30 @@
 <!-- loop through datadump to create markers -->
             {% for data in datadump %}
             
-            var latLng = new google.maps.LatLng('{{data.latitude}}','{{data.longitude}}');
+            var latLng{{forloop.counter}} = new google.maps.LatLng('{{data.latitude}}','{{data.longitude}}');
             
 <!-- Give location to look for marker image and define size -->  
-            var icon = {
+            var icon{{forloop.counter}} = {
                 url: "{% static 'darkskymap/img/rocket-15.svg' %}", // url
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
             
 <!-- Define marker attributes -->        	
-        	var marker = new google.maps.Marker({
-            	position: latLng,
+        	var marker{{forloop.counter}} = new google.maps.Marker({
+            	position: latLng{{forloop.counter}},
             	map: map,
             	title: '{{data.locationid}}',
             	label: '{{data.observationdate}}',
-            	icon: icon
+            	icon: icon{{forloop.counter}}
         	});
-      		                            
-      		{% endfor %}
-
-            
-            {% for data in datadump %}
             
 <!-- Assign content to Infowindows -->      	
-            var infowindow = new google.maps.InfoWindow({
+            var infowindow{{forloop.counter}} = new google.maps.InfoWindow({
              content: '{{data.locationid}}',
             });      		
 
  <!-- Assign on-click listener func to infowindow -->  
-             marker.addListener('click', function() {
+             marker{{forloop.counter}}.addListener('click', function() {
               infowindow.open(map, marker);
              });        		
       		                            
