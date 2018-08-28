@@ -9,17 +9,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <!-- CSS instructions for Map -->
-    <link href="{% static 'darkskymap/css/styleinstructions.css' %}" rel="stylesheet" type="text/css">  
-    
+    <link href="{% static 'darkskymap/css/styleinstructions.css' %}" rel="stylesheet" type="text/css">
+
      <!-- Custom styles navbar -->
     <link href="{% static 'darkskymap/css/navbar-top-fixed.css' %}" rel="stylesheet" type="text/css">
 
-    <title>Dark Sky Map</title> 
-      
+    <title>Dark Sky Map</title>
+
   </head>
-  
+
   <body>
     <div id="map" ></div>
 
@@ -46,14 +46,14 @@
 
 
     <script type="text/javascript">
-    
-    
+
+
 <!-- Retro map styling and setup -->
-    function initMap() {        
+    function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 6,
           center: {lat: 47.0810, lng: 2.3987},
-          styles: [  
+          styles: [
           {"elementType": "geometry",
            "stylers": [{"color": "#ebe3cd"}]
           },
@@ -161,17 +161,17 @@
           }
           ]
           });
-          
+
 <!-- Creation of array each element of model -->
         	var locationid = []
     		var latitude = []
     		var longitude = []
-    		var observationdate = []         
+    		var observationdate = []
 
-    		
+
 <!-- loop through datadump to populate arrays -->
     		{% for data in datadump %}
-      			locationid.push('{{data.locationid}}');       
+      			locationid.push('{{data.locationid}}');
       			latitude.push('{{data.latitude}}');
       			longitude.push('{{data.longitude}}');
       			observationdate.push('{{data.observationdate}}');
@@ -179,16 +179,16 @@
 
 <!-- loop through datadump to create markers -->
             {% for data in datadump %}
-            
+
             var latLng{{forloop.counter}} = new google.maps.LatLng('{{data.latitude}}','{{data.longitude}}');
-            
-<!-- Give location to look for marker image and define size -->  
+
+<!-- Give location to look for marker image and define size -->
             var icon{{forloop.counter}} = {
                 url: "{% static 'darkskymap/img/rocket-15.svg' %}", // url
                 scaledSize: new google.maps.Size(20, 20), // scaled size
             };
-            
-<!-- Define marker attributes -->        	
+
+<!-- Define marker attributes -->
         	var marker{{forloop.counter}} = new google.maps.Marker({
             	position: latLng{{forloop.counter}},
             	map: map,
@@ -196,26 +196,26 @@
             	label: '{{data.observationdate}}',
             	icon: icon{{forloop.counter}}
         	});
-            
-<!-- Assign content to Infowindows -->      	
+
+<!-- Assign content to Infowindows -->
             var infowindow{{forloop.counter}} = new google.maps.InfoWindow({
              content: '{{data.locationid}}',
-            });      		
+            });
 
- <!-- Assign on-click listener func to infowindow -->  
+ <!-- Assign on-click listener func to infowindow -->
              marker{{forloop.counter}}.addListener('click', function() {
               infowindow{{forloop.counter}}.open(map, marker{{forloop.counter}});
-             });        		
-      		                            
+             });
+
       		{% endfor %}
-        		
-    	} 
-    	    	
+
+    	}
+
     </script>
-     
+
 <!-- script that looks for map on Google's API server -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_HfEHAQHhvIZzTPWV5bWAdX2QeIH5ON4&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
     </script>
 
   
