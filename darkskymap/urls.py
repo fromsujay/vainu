@@ -7,5 +7,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.accueil, name='accueil'),
     url(r'^decouvrir/', views.decouvrir, name='decouvrir'),
-    url(r'^partager/', views.partager, name='partager'),    
+    url(r'^partager/', views.partager, name='partager'),
+    url(r'^cartedepollutionlumineuse/', views.cartedepollutionlumineuse, name='cartedepollutionlumineuse'),    
 ]

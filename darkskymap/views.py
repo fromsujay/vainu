@@ -14,7 +14,7 @@ from .forms import LocationdataForm
 # This function renders landing page view
 def accueil(request):
     return render(request, 'darkskymap/accueil.html', {})
-    
+
 # This function renders map/découvrir view page. Datadump extracts data from database
 # and serves it as dictionary to map/découvrir html page
 def decouvrir(request):
@@ -37,5 +37,8 @@ def partager(request):
 
     else:
         form = LocationdataForm()
-        return render(request, 'darkskymap/partager.html', {})         
+        return render(request, 'darkskymap/partager.html', {})
 
+//
+def cartedepollutionlumineuse(request):
+    return render(request, 'darkskymap/cartedepollutionlumineuse.html', {})
