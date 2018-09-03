@@ -1,0 +1,156 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- CSS instructions for Map -->
+    <link href="{% static 'darkskymap/css/styleinstructions.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles navbar -->
+    <link href="{% static 'darkskymap/css/navbar-top-fixed.css' %}" rel="stylesheet" type="text/css">
+
+    <title>Dark Sky Map</title>
+
+  </head>
+
+  <body>
+    <div id="lightpollutionmap" ></div>
+
+     <!-- Code for fixed top navabar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/#/">Dark Sky Map</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/#/">Accueil</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/decouvrir/">Découvrir</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/partager/">Partager</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/cartedepollutionlumineuse/">Carte de Pollution Lumineuse<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Code that pulls data from NASA GIBS server and adds to map -->
+    <script type="text/javascript">
+
+
+    // Set custom overlay object prototype to new instance of OverlayView
+    var overlay;
+    lightpollutionoverlay.prototype = new google.maps.OverlayView();
+
+
+    // Initialize the map
+    var initialmap;
+
+    function initMap() {
+     initialmap = new google.maps.Map(document.getElementById('lightpollutionmap'), {
+      center: {lat: 47.0810, lng: 2.3987},
+      zoom: 6
+     });
+    }
+
+
+    var bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(-90, -180),
+        new google.maps.LatLng(90, 180));
+
+    // Search night pollution image from NASA GIBS server
+    var srcImage = 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_Black_Marble/default/2018-06-30/GoogleMapsCompatible_Level13/13/13/36.png';
+
+    // custom lightpollutionoverlay object contains the night pollution image
+    // bounds of image and reference to initialmap
+    overlay = new lightpollutionoverlay(bounds, srcImage, initialmap);
+
+    // @constructor
+    function Lightpollutionoverlay(bounds, srcImage, initialmap) {
+
+    // initialize passed parameters as properties of the new object.
+      this.bounds_ = bounds;
+      this.image_ = srcImage;
+      this.map_ = initialmap;
+
+      // Define a property to hold the image's div. We'll
+      // actually create this div upon receipt of the onAdd()
+      // method so we'll leave it null for now.
+      this.div_ = null;
+
+      // Explicitly call setMap on this overlay.
+      this.setMap(initialmap);
+    }
+
+    // Implement onAdd method to initialize the overlay DOM elements.
+    lightpollutionoverlay.prototype.onAdd = function() {
+
+      // creation of div to hold NASA GIBS night pollution image
+      var div = document.createElement('div');
+
+      // Create the img element and attach it to the div.
+      var img = document.createElement('srcImage');
+      img.src = this.image_;
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.position = 'absolute';
+      div.appendChild(srcImage);
+
+      // Define a property to hold the image's div
+      this.div_ = div;
+
+      // Add the element to the "overlayLayer" pane.
+      var panes = this.getPanes();
+      panes.overlayLayer.appendChild(div);
+    };
+
+  // Implement draw method to draw overlay on the map
+    lightpollutionoverlay.prototype.draw = function() {
+
+  // We use the south-west and north-east
+  // coordinates of the overlay to peg it to the correct position and size.
+  // To do this, we need to retrieve the projection from the overlay.
+  var overlayProjection = this.getProjection();
+
+  // Retrieve the south-west and north-east coordinates of this overlay
+  // in LatLngs and convert them to pixel coordinates.
+  // We'll use these coordinates to resize the div.
+  var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+  var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+  // Resize the image's div to fit the indicated dimensions.
+  var div = this.div_;
+  div.style.left = sw.x + 'px';
+  div.style.top = ne.y + 'px';
+  div.style.width = (ne.x - sw.x) + 'px';
+  div.style.height = (sw.y - ne.y) + 'px';
+    };
+
+
+    </script>
+
+    <!-- script that looks for map on Google's API server -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

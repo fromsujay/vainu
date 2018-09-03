@@ -34,13 +34,16 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/#/">Accueil </a>
+            <a class="nav-link" href="/#/">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/decouvrir/">Découvrir </a>
+            <a class="nav-link" href="/decouvrir/">Découvrir</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/partager/">Partager <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/partager/">Partager<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cartedepollutionlumineuse/">Carte de Pollution Lumineuse</a>
           </li>
         </ul>
       </div>
@@ -53,32 +56,32 @@
                               <p class="lead">Tous les champs sont obligatoires. Veuillez respecter les formats préconisés SVP. Pour l'instant la suppression des lieux crées n'est pas possible.</p>
                     </div>
 
-                    
-                    <form method="POST" class="post-form">
-                        {% csrf_token %} 
-                        {{ form }}    
-                    
-          
 
-                              
+                    <form method="POST" class="post-form">
+                        {% csrf_token %}
+                        {{ form }}
+
+
+
+
                               <div class="form-group">
                               <label for="id_locationid"">Nom du lieu d'observation <span class="text-muted">Il doit être unique.</span></label>
                               <input type="text" class="form-control" id="id_locationid" maxlength="70" name="locationid" placeholder="exemple: Planétarium Ludiver" required>
                               </div>
 
-                              
+
                               <div class="form-group">
                               <label for="id_latitude">Latitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_latitude" name="latitude" placeholder="exemple: 49.630275" required>
                               </div>
-                              
-                              
+
+
                               <div class="form-group">
                               <label for="id_longitude">Longitude du lieu <span class="text-muted">Degrés décimaux (DD)</span></label>
                               <input type="text" class="form-control" id="id_longitude" name="longitude" placeholder="exemple: -1.724942" required>
                               </div>
 
-                              
+
                               <div class="form-group">
                               <label for="id_observationdate">Date d'Observation <span class="text-muted">(jj/mm/aaaa)</span></label>
                               <input type="date" class="form-control" id="id_observationdate" name="observationdate" required>
@@ -86,10 +89,10 @@
 
 
                               <button class="btn btn-primary btn-lg btn-block" type="submit">Créer lieu d'Observation</button>
-                    
-                    
 
-                   
+
+
+
                     </form>
 
 
@@ -103,9 +106,9 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="darkskymap/js/holder.min.js"> type="text/javascript" </script>
-    
+
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
@@ -132,7 +135,3 @@
 
   </body>
 </html>
-
-
-
-
