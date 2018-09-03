@@ -39,6 +39,6 @@ def partager(request):
         form = LocationdataForm()
         return render(request, 'darkskymap/partager.html', {})
 
-//
+# This function renders light pollution map view
 def cartedepollutionlumineuse(request):
     return render(request, 'darkskymap/cartedepollutionlumineuse.html', {})
