@@ -47,6 +47,8 @@
     <!-- Code that pulls data from NASA GIBS server and adds to map -->
     <script type="text/javascript">
 
+      google.maps.event.addDOMListener(window, 'load', initMap);
+
       // Set custom overlay object prototype to new instance of OverlayView
       var overlay;
       var lightpollutionoverlay = {};
@@ -136,7 +138,6 @@
       div.style.height = (sw.y - ne.y) + 'px';
       };
 
-      google.maps.event.addDOMListener(window, 'load', initMap);
 
     </script>
 
