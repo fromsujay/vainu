@@ -44,6 +44,11 @@
       </div>
     </nav>
 
+    <!-- script that looks for map on Google's API server -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
+    </script>
+
     <!-- Code that pulls data from NASA GIBS server and adds to map -->
     <script type="text/javascript">
 
@@ -139,11 +144,6 @@
 
     </script>
 
-    <!-- script that looks for map on Google's API server -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
-    google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
