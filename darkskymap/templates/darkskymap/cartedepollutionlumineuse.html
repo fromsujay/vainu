@@ -47,6 +47,7 @@
     <!-- script that looks for map on Google's API server -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
+    google.maps.event.addDOMListener(window, 'load', initMap);
     </script>
 
     <!-- Code that pulls data from NASA GIBS server and adds to map -->
