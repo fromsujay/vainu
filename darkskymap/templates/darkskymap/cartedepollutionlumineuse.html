@@ -57,7 +57,7 @@
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         var getTileUrl = function(tile, zoom){
-            return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/2013-12-02/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
+            return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/default/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
           }
 
         var layerOptions = {
