@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <div id="lightpollutionmap" ></div>
+    <div id="map" ></div>
 
      <!-- Code for fixed top navabar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -46,7 +46,7 @@
 
     <!-- Code that pulls data from NASA GIBS server and adds to map -->
     <script type="text/javascript">
-      window.onload = function mapCreator() {
+      window.onload = function () {
 
         var mapOptions = {
           center: new google.maps.LatLng(21,78),
@@ -54,7 +54,7 @@
           maxZoom: 6
         }
 
-        var map = new google.maps.Map(document.getElementById('lightpollutionmap'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         var getTitleUrl = function(tile, zoom){
           return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'MODIS_Terra_Aerosol/default/2013-12-02/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
@@ -78,7 +78,7 @@
 
     <!-- script that looks for map on Google's API server -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=mapCreator">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIQZSE4hWZYz9YcyNuTCSjjs6j3jObME0&callback=initMap">
     </script>
 
     <!-- Optional JavaScript -->
