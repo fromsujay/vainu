@@ -56,13 +56,13 @@
 
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-        var getTitleUrl = function(tile, zoom){
-          return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/2013-12-02/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
+        var getTileUrl = function(tile, zoom){
+          return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/2018-06-30/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
         }
 
         var layerOptions = {
           alt: 'VIIRS_Black_Marble',
-          getTileUrl: getTitleUrl,
+          getTileUrl: getTileUrl,
           maxZoom: 6,
           minZoom: 1,
           name: 'VIIRS_Black_Marble',
