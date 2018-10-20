@@ -59,7 +59,7 @@
           return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'MODIS_Terra_Aerosol/default/2013-12-02/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
         }
 
-        var layerOptions {
+        var layerOptions = {
           alt: 'MODIS_Terra_Aerosol',
           getTileUrl: getTileUrl,
           maxZoom: 6,
