@@ -60,8 +60,6 @@
             return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/default/' + 'GoogleMapsCompatible_Level8/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
           }
 
-        console.log(tile);
-
         var layerOptions = {
           alt: 'VIIRS_Black_Marble',
           getTileUrl: getTileUrl,
