@@ -57,8 +57,10 @@
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         var getTileUrl = function(tile, zoom){
-            return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/default/' + 'GoogleMapsCompatible_Level6/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
+            return '//gibs.earthdata.nasa.gov/wmts/epsg3857/best/' + 'VIIRS_Black_Marble/default/default/' + 'GoogleMapsCompatible_Level8/' + zoom + '/' + tile.y + '/' + tile.x + '.png';
           }
+
+        console.log(tile);
 
         var layerOptions = {
           alt: 'VIIRS_Black_Marble',
@@ -66,7 +68,7 @@
           maxZoom: 6,
           minZoom: 1,
           name: 'VIIRS_Black_Marble',
-          tileSize: new google.maps.Size(100,100),
+          tileSize: new google.maps.Size(256,256),
           opacity: 0.5
         }
 
